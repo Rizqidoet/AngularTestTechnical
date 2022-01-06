@@ -6,11 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from "@angular/common/http";
+import { BlogComponent } from './blog/blog.component';
+import { PortofolioComponent } from './portofolio/portofolio.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    BlogComponent,
+    PortofolioComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

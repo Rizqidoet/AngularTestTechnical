@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from '../models/login';
 import { LoginService } from '../services/login.service';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private LoginService: LoginService,
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,8 @@ export class LoginComponent implements OnInit {
           console.log("Error onLogin = ", error)
         }
       )
+
+      this.router.navigate(['dashboard']);
 
     }
   }
