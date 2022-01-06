@@ -1,0 +1,12 @@
+{
+
+    "/api/*" : {
+        "target": "https://dev.enigmacamp.com",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+
+}
