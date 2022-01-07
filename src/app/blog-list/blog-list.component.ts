@@ -50,4 +50,30 @@ export class BlogListComponent implements OnInit {
     this.router.navigateByUrl("blog-add", {state: {data: blog}})
   }
 
+  delete(blog: addBlogModel){
+    
+      this.tokenStorage = localStorage.getItem("apiLogin");
+      this.tokenKey = JSON.parse(this.tokenStorage);
+
+      var url = '/api/trainings/api/blogs/' + blog.id;
+      var headers = new HttpHeaders({
+        'access-control-allow-methods': 'GET,PUT,POST,DELETE,HEAD,OPTIONS', 
+        'access-control-allow-origin': 'https://dev.enigmacamp.com',
+        'content-type': 'application/json; charset=UTF-8', 
+        'Authorization': 'Bearer ' + this.tokenKey['token'] 
+          
+      });
+      
+      this.http.delete(url, { headers }).subscribe(
+        (response) => {
+          this.router.navigateByUrl('/blog-list')
+          this.getListBlog();
+          console.log("Berhasil ubah data blog adalah = ", response)
+        }, (error) => {
+          console.log("Gagal ubah data blog adalah = ", error)
+          
+        })
+
+  }
+
 }

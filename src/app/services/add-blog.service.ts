@@ -15,5 +15,9 @@ export class AddBlogService {
     return this.httpClient.post<any>("api/trainings/api/blogs", addBlog);
   }
 
+  deleteBlog(blogId: string){
+    return this.httpClient.get<any>("/api/trainings/api/blogs/" + blogId);
+  }
+
   
 }

@@ -52,12 +52,12 @@
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody *ngIf="blogList.length == 0">
+            <tbody *ngIf="blogList?.length == 0">
               <tr>
                 <th colspan="6">Data is empty</th>
               </tr>
             </tbody>
-            <tbody *ngIf="blogList.length > 0">
+            <tbody *ngIf="blogList?.length != 0">
                 <tr *ngFor="let blog of blogList; let i = index">
                     <td>{{ i+1 }}</td>
                     <td>{{ blog.title }}</td>
@@ -69,7 +69,9 @@
                             <i class="fa fa-edit"></i>
                         </button>
                         
-                        <a class="text-danger ms-1"><i class="fa fa-trash-o"></i></a>
+                        <button (click)="delete(blog)" class="text-danger ms-1">
+                            <i class="fa fa-trash-o"></i>
+                        </button>
                     </td>
                 </tr>
               </tbody>

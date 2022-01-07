@@ -65,11 +65,13 @@
                     <td>{{ portfolios.projectDescription }}</td>
                     <td>{{ portfolios.projectYear }}</td>
                     <td class="ps-3">
-                        <button (click)="edit(portfolios)" class="btn text-success me-1">
+                        <button class="text-success me-1" (click)="edit(portfolios)">
                             <i class="fa fa-edit"></i>
                         </button>
                         
-                        <a class="text-danger ms-1"><i class="fa fa-trash-o"></i></a>
+                        <button (click)="delete(portfolios)" class="text-danger ms-1">
+                            <i class="fa fa-trash-o"></i>
+                        </button>
                     </td>
                 </tr>
               </tbody>
