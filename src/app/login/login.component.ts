@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from '../models/login';
+import { loginModel } from '../models/login';
 import { LoginService } from '../services/login.service';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  login = new Login()
+  login = new loginModel()
 
   constructor(
     private LoginService: LoginService,
@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  tokenKey: any;
+  tokenStorage: any;
+
   onLogin(){
     console.log(this.login);
 
@@ -31,14 +34,20 @@ export class LoginComponent implements OnInit {
       alert("Password Tidak Boleh Kosong")
     }else {
       this.LoginService.onLogin(this.login).subscribe(
-        data =>{
+        (data: any) =>{
           console.log("Data onLogin = ", data)
-        }, error =>{
+          // this.tokenKey = data['token'];
+          localStorage.setItem('testObject', JSON.stringify(data));
+          this.tokenStorage = localStorage.getItem("testObject");
+          this.tokenKey = JSON.parse(this.tokenStorage);
+          console.log("Balikan dari local storage = ", this.tokenKey['token'])
+
+        }, (error) =>{
           console.log("Error onLogin = ", error)
         }
       )
 
-      this.router.navigate(['dashboard']);
+       this.router.navigate(['dashboard']);
 
     }
   }

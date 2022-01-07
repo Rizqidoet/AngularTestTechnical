@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from "@angular/common/http"
-import { Login } from '../models/login';
-
+import { loginModel } from '../models/login';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +10,7 @@ export class LoginService {
     private httpClient: HttpClient 
     ) { }
 
-
-    onLogin(login: Login){
+    onLogin(login: loginModel){
       return this.httpClient.post("api/trainings/api/auth/login", login);
     }
 }
