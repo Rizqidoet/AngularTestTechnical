@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 import { addPortofolioModel } from '../models/add-portofolio';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portofolio-list',
@@ -14,7 +15,8 @@ export class PortofolioListComponent implements OnInit {
   tokenKey: any;
   
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,8 +39,11 @@ export class PortofolioListComponent implements OnInit {
     }, error => {
       console.log("Gagal, Isi Response GetListBlog = ", error)
     })
+  }
 
-    
+  edit(portfolios: addPortofolioModel){
+    // console.log("Data Blog Terpilih = ", blog)
+    this.router.navigateByUrl("portfolios-add", {state: {data: portfolios}})
   }
 
 }

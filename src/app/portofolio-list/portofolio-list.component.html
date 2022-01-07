@@ -36,8 +36,8 @@
                 </b>
             </h3>
         </div>
-        <div class="col">
-            <button type="button" class="btn btn-warning w-100 py-2" routerLink="/portfolios-add">Tambah Data</button>
+        <div class="col text-end">
+            <button type="button" class="btn btn-warning py-2 px-4" routerLink="/portfolios-add">Tambah Data</button>
         </div>
     </div>
     <div class="mt-4">
@@ -58,16 +58,18 @@
               </tr>
             </tbody>
             <tbody *ngIf="portofolioList.length > 0">
-                <tr *ngFor="let blog of portofolioList; let i = index">
+                <tr *ngFor="let portfolios of portofolioList; let i = index">
                     <td>{{ i+1 }}</td>
-                    <td>{{ blog.projectName }}</td>
-                    <td>{{ blog.projectImage }}</td>
-                    <td>{{ blog.projectDescription }}</td>
-                    <td>{{ blog.projectYear }}</td>
-                    <td>
-                        <a class="text-success">edit</a>
-                        <span> | </span>
-                        <a class="text-danger">hapus</a>
+                    <td>{{ portfolios.projectName }}</td>
+                    <td>{{ portfolios.projectImage }}</td>
+                    <td>{{ portfolios.projectDescription }}</td>
+                    <td>{{ portfolios.projectYear }}</td>
+                    <td class="ps-3">
+                        <button (click)="edit(portfolios)" class="btn text-success me-1">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        
+                        <a class="text-danger ms-1"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
               </tbody>

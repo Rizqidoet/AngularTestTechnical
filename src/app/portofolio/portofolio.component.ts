@@ -9,15 +9,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./portofolio.component.css']
 })
 export class PortofolioComponent implements OnInit {
-  
-  addPortofolio = new addPortofolioModel()
 
+  addPortofolio = new addPortofolioModel()
+  titlePage = "Tambah data baru portfolios"
+  buttonCTA ="Simpan"
+  
   constructor(
     private httpClient: HttpClient,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    
+   
+    if(history.state){
+      const a = history.state;
+      // console.log(a.data)
+      if(a.data != undefined){
+        this.titlePage = "Ubah data blog"
+        this.buttonCTA = "Ubah"
+        this.addPortofolio = a.data;
+      }
+      
+    }
   }
 
   tokenStorage: any;
@@ -35,30 +49,58 @@ export class PortofolioComponent implements OnInit {
       alert("projectYear Tidak Boleh Kosong")
     }else{
 
-      console.log(this.addPortofolio)
+      if(this.buttonCTA == "Simpan"){
+        console.log("State Simpan")
+        this.tokenStorage = localStorage.getItem("apiLogin");
+        this.tokenKey = JSON.parse(this.tokenStorage);
 
-      this.tokenStorage = localStorage.getItem("apiLogin");
-      this.tokenKey = JSON.parse(this.tokenStorage);
+        var url = 'api/trainings/api/portfolios';
+        var headers = new HttpHeaders({
+          'access-control-allow-methods': 'GET,PUT,POST,DELETE,HEAD,OPTIONS', 
+          'access-control-allow-origin': 'https://dev.enigmacamp.com',
+          'content-type': 'application/json; charset=UTF-8', 
+          'Authorization': 'Bearer ' + this.tokenKey['token'] 
+            
+        });
+        //console.log("Headers = ", headers);
+        const obj = JSON.stringify(this.addPortofolio);
 
-      var url = 'api/trainings/api/portfolios';
-      var headers = new HttpHeaders({
-        'access-control-allow-methods': 'GET,PUT,POST,DELETE,HEAD,OPTIONS', 
-        'access-control-allow-origin': 'https://dev.enigmacamp.com',
-        'content-type': 'application/json; charset=UTF-8', 
-        'Authorization': 'Bearer ' + this.tokenKey['token'] 
-          
-      });
-      //console.log("Headers = ", headers);
-      const obj = JSON.stringify(this.addPortofolio);
+        this.httpClient.post(url, obj, { headers }).subscribe(
+          (response) => {
+            console.log("Berhasil simpan data portfolio adalah = ", response)
+            this.router.navigateByUrl('/portfolios-list')
+          }, (error) => {
+            console.log("Gagal simpan data portfolio adalah = ", error)
+            console.log("Ini Variable Obj", obj)
+          })
+      }else{
+        console.log("State Ubah")
+        this.tokenStorage = localStorage.getItem("apiLogin");
+        this.tokenKey = JSON.parse(this.tokenStorage);
 
-      this.httpClient.post(url, obj, { headers }).subscribe(
-        (response) => {
-          console.log("Isi Dari addPortofolio adalah = ", response)
-          this.router.navigateByUrl('/portfolios-list')
-        }, (error) => {
-          console.log("Error Dari addPortofolio adalah = ", error)
-          console.log("Ini Variable Obj", obj)
-        })
+        var url = 'api/trainings/api/portfolios';
+        var headers = new HttpHeaders({
+          'access-control-allow-methods': 'GET,PUT,POST,DELETE,HEAD,OPTIONS', 
+          'access-control-allow-origin': 'https://dev.enigmacamp.com',
+          'content-type': 'application/json; charset=UTF-8', 
+          'Authorization': 'Bearer ' + this.tokenKey['token'] 
+            
+        });
+        //console.log("Headers = ", headers);
+        const obj = JSON.stringify(this.addPortofolio);
+
+        this.httpClient.put(url, obj, { headers }).subscribe(
+          (response) => {
+            console.log("Berhasil ubah data portfolio adalah = ", response)
+            this.router.navigateByUrl('/portfolios-list')
+          }, (error) => {
+            console.log("Gagal ubah data portfolio adalah = ", error)
+            console.log("Ini Variable Obj", obj)
+          })
+      }
+      
+
+      
 
     }
   }

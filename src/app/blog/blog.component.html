@@ -31,7 +31,7 @@
     <div>
         <h3>
             <b>
-                Add data blog
+                {{ titlePage }}
             </b>
         </h3>
     </div>
@@ -55,10 +55,10 @@
     </div>
     <div class="mt-4 row">
         <div class="col col-md-4">
-            <button type="button" class="btn btn-secondary w-100 py-2" routerLink="/blog-list" >Kembali</button>
+            <button type="button" class="btn btn-secondary w-100 py-2" routerLink="/blog-list" id="buttonCTA">Kembali</button>
         </div>
         <div class="col col-md-8">
-            <button type="button" class="btn btn-warning w-100 py-2" (click)="onSaveAddBlog()">Simpan</button>
+            <button type="button" class="btn btn-warning w-100 py-2" (click)="onSaveAddBlog()">{{ buttonCTA }}</button>
         </div>
         
     </div>

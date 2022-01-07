@@ -36,8 +36,8 @@
                 </b>
             </h3>
         </div>
-        <div class="col">
-            <button type="button" class="btn btn-warning w-100 py-2" routerLink="/blog-add">Tambah Data</button>
+        <div class="col text-end">
+            <button type="button" class="btn btn-warning py-2 px-4" routerLink="/blog-add">Tambah Data</button>
         </div>
     </div>
     <div class="mt-4">
@@ -64,10 +64,12 @@
                     <td>{{ blog.content }}</td>
                     <td>{{ blog.author }}</td>
                     <td>{{ blog.url }}</td>
-                    <td>
-                        <a class="text-success">edit</a>
-                        <span> | </span>
-                        <a class="text-danger">hapus</a>
+                    <td class="ps-3">
+                        <button class="text-success me-1" (click)="edit(blog)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        
+                        <a class="text-danger ms-1"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
               </tbody>

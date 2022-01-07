@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { addBlogModel } from '../models/add-blog';
 import { AddBlogService } from '../services/add-blog.service';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-blog-list',
@@ -16,7 +19,8 @@ export class BlogListComponent implements OnInit {
 
   constructor(
     private blogService: AddBlogService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -39,8 +43,11 @@ export class BlogListComponent implements OnInit {
     }, error => {
       console.log("Gagal, Isi Response GetListBlog = ", error)
     })
+  }
 
-    
+  edit(blog: addBlogModel){
+    // console.log("Data Blog Terpilih = ", blog)
+    this.router.navigateByUrl("blog-add", {state: {data: blog}})
   }
 
 }

@@ -26,7 +26,7 @@ import { PortofolioListComponent } from './portofolio-list/portofolio-list.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
