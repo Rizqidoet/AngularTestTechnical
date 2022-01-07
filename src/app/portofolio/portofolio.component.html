@@ -6,7 +6,7 @@
                 <img src="../../assets/icon-login.png" style="height: 25px; width: 25px;"/>
             </div>
             <div class="ms-2 pt-2 my-auto">
-                <label for="Username" class="form-label">
+                <label for="Username" class="form-label" routerLink="/dashboard">
                     <b>
                         Rizqi Technical-test
                     </b>
@@ -17,28 +17,50 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" routerLink="/portofolio">Portofolio</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
-                
+                <li class="nav-item"><a class="nav-link" routerLink="/portfolios-list">Portfolios</a></li>
+                <li class="nav-item"><a class="nav-link" active routerLink="/blog-list">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" active routerLink="/login">Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- End: Navbar menu -->
 
-<header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
-        <!-- Masthead Avatar Image-->
-        <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="..." />
-        <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-            <div class="divider-custom-line"></div>
-        </div>
-        <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+<!-- Start: Body -->
+<div class="container flex-row mt-5 w-50 py-3">
+    <div>
+        <h3>
+            <b>
+                Add data Portfolios
+            </b>
+        </h3>
     </div>
-</header>
+    <div class="mt-4 form-floating">
+        <input type="text" class="form-control" id="title" placeholder="projectName" required [(ngModel)]="addPortofolio.projectName">
+        <label for="projectName"class="text-muted">Project Name</label>
+    </div>
+    <div class="mt-3">
+        <label for="projectImage" class="form-label">Project Image</label>
+         <input class="form-control" type="file" id="projectImage" [(ngModel)]="addPortofolio.projectImage">
+    </div>
+    <div class="form-floating mt-3">
+        <textarea class="form-control" placeholder="Project Description Value" id="projectDescription" style="height: 100px" [(ngModel)]="addPortofolio.projectDescription"></textarea>
+        <label for="projectDescription"class="text-muted">Project Desccription</label>
+    </div>
+    <div class="row mt-3">
+        <div class="w-50 form-floating">
+            <input type="text" class="form-control" id="projectYear" placeholder="projectYear" required [(ngModel)]="addPortofolio.projectYear">
+            <label for="projectYear" class="text-muted ms-3">Project Year</label>
+        </div>
+    </div>
+    <div class="mt-4 row">
+        <div class="col col-md-4">
+            <button type="button" class="btn btn-secondary w-100 py-2" routerLink="/portfolios-list" >Kembali</button>
+        </div>
+        <div class="col col-md-8">
+            <button type="button" class="btn btn-warning w-100 py-2" (click)="oSaveAddPortofolio()">Simpan</button>
+        </div>
+        
+    </div>
+</div>
+<!-- End: Body -->

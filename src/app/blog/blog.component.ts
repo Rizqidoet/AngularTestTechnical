@@ -1,5 +1,6 @@
-import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
+import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { addBlogModel } from '../models/add-blog';
 import { AddBlogService } from '../services/add-blog.service';
@@ -24,6 +25,7 @@ export class BlogComponent implements OnInit {
 
   tokenStorage: any;
   tokenKey: any;
+
   onSaveAddBlog(){
     console.log(this.addBlog);
 
@@ -36,33 +38,9 @@ export class BlogComponent implements OnInit {
     }else if(this.addBlog.url == undefined){
       alert("URL Tidak Boleh Kosong")
     }else{
-      // this.addBlogService.addBlog(this.addBlog).subscribe(
-      //   data =>{
-      //     console.log("Isi Dari addBlog adalah = ", data)
-      //   }, error =>{
-          
-      //     console.log("Error Dari addBlog adalah = ", error)
-      //   }
-      // )
-      this.tokenStorage = localStorage.getItem("testObject");
+     
+      this.tokenStorage = localStorage.getItem("apiLogin");
       this.tokenKey = JSON.parse(this.tokenStorage);
-
-      // const headers = { 'Authorization': "Bearer ", 'My-Custom-Header': 'foobar' };
-      // const body = {
-      //     id: this.addBlog.id,
-      //     title: this.addBlog.title,
-      //     content: this.addBlog.content,
-      //     author: this.addBlog.author,
-      //     url: this.addBlog.url
-      // };
-      // this.http.post<any>('api/trainings/api/blogs', body, { headers }).subscribe(data => {
-      //     this.postId = data.id;
-      //     console.log('postID = ', this.postId)
-      // });
-
-      //localStorage.setItem('user', this.addBlog.title);
-      //JSON.parse(localStorage.getItem('user'));
-      
 
       var url = 'api/trainings/api/blogs';
       var headers = new HttpHeaders({
@@ -72,11 +50,12 @@ export class BlogComponent implements OnInit {
         'Authorization': 'Bearer ' + this.tokenKey['token'] 
           
       });
-      console.log("Headers = ", headers);
+      // console.log("Headers = ", headers);
       const obj = JSON.stringify(this.addBlog);
 
       this.http.post(url, obj, { headers }).subscribe(
         (response) => {
+          this.router.navigateByUrl('/blog-list')
           console.log("Isi Dari addBlog adalah = ", response)
         }, (error) => {
           console.log("Error Dari addBlog adalah = ", error)

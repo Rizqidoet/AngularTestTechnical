@@ -1,19 +1,18 @@
-
 import { Injectable } from '@angular/core';
 import { addBlogModel } from '../models/add-blog';
 import { HttpClient } from '@angular/common/http';
+import { addPortofolioModel } from '../models/add-portofolio';
+
 @Injectable({
   providedIn: 'root'
 })
-export class AddBlogService {
+export class AddPortofolioService {
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  addBlog(addBlog: addBlogModel){
-    return this.httpClient.post<any>("api/trainings/api/blogs", addBlog);
+  addPortofolio(addPortofolio: addPortofolioModel){
+    return this.httpClient.post("api/trainings/api/portfolios", addPortofolio)
   }
-
-  
 }

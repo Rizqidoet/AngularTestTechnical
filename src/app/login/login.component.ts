@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.clearStorage()
   }
 
   tokenKey: any;
@@ -37,8 +38,8 @@ export class LoginComponent implements OnInit {
         (data: any) =>{
           console.log("Data onLogin = ", data)
           // this.tokenKey = data['token'];
-          localStorage.setItem('testObject', JSON.stringify(data));
-          this.tokenStorage = localStorage.getItem("testObject");
+          localStorage.setItem('apiLogin', JSON.stringify(data));
+          this.tokenStorage = localStorage.getItem("apiLogin");
           this.tokenKey = JSON.parse(this.tokenStorage);
           console.log("Balikan dari local storage = ", this.tokenKey['token'])
 
@@ -50,6 +51,10 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['dashboard']);
 
     }
+  }
+
+  clearStorage() {
+    localStorage.removeItem('apiLogin')
   }
 
 }

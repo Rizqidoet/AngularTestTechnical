@@ -6,7 +6,7 @@
                 <img src="../../assets/icon-login.png" style="height: 25px; width: 25px;"/>
             </div>
             <div class="ms-2 pt-2 my-auto">
-                <label for="Username" class="form-label" routerLink="/">
+                <label for="Username" class="form-label" routerLink="/dashboard">
                     <b>
                         Rizqi Technical-test
                     </b>
@@ -17,9 +17,9 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" routerLink="/portofolio">Portofolio</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/blog">Blog</a></li>
-                
+                <li class="nav-item"><a class="nav-link" routerLink="/portfolios-list">Portfolios</a></li>
+                <li class="nav-item"><a class="nav-link" active routerLink="/blog-list">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" active routerLink="/login">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -53,8 +53,14 @@
             <label for="url" class="text-muted ms-3">Url</label>
         </div>
     </div>
-    <div class="mt-4">
-        <button type="button" class="btn btn-warning w-100 py-2" (click)="onSaveAddBlog()">Simpan</button>
+    <div class="mt-4 row">
+        <div class="col col-md-4">
+            <button type="button" class="btn btn-secondary w-100 py-2" routerLink="/blog-list" >Kembali</button>
+        </div>
+        <div class="col col-md-8">
+            <button type="button" class="btn btn-warning w-100 py-2" (click)="onSaveAddBlog()">Simpan</button>
+        </div>
+        
     </div>
 </div>
 <!-- End: Body -->

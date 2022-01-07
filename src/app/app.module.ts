@@ -9,6 +9,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { BlogComponent } from './blog/blog.component';
 import { PortofolioComponent } from './portofolio/portofolio.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BlogListComponent } from './blog-list/blog-list.component';
+import { PortofolioListComponent } from './portofolio-list/portofolio-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     BlogComponent,
     PortofolioComponent,
-    DashboardComponent
+    DashboardComponent,
+    BlogListComponent,
+    PortofolioListComponent
   ],
   imports: [
     BrowserModule,
