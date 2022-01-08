@@ -1,3 +1,147 @@
+<div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div
+        class="d-flex flex-column align-items-center bg-warning"
+        style="height: 100vh"
+      >
+        <div
+          class="col d-flex justify-content-start pt-3"
+          style="height: 10%; width: 100%"
+        >
+          <div class="my-auto ps-5">
+            <img
+              src="../../assets/icon-login.png"
+              style="height: 25px; width: 25px"
+            />
+          </div>
+          <div class="ms-2 pt-2 my-auto">
+            <label for="Username" class="form-label">
+              <b> Rizqi Technical-test </b>
+            </label>
+          </div>
+        </div>
+        <div style="height: 90%">
+          <img src="../../assets/image-hero.png" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 align-self-center">
+      <div class="p-5 mx-5 flex-column">
+        <div>
+          <h4><b>Sign In</b></h4>
+        </div>
+        <div class="mt-4">
+          <label for="Username" class="form-label">Username</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              [(ngModel)]="login.username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+        </div>
+        <div>
+          <label for="Password" class="form-label">Password</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              [(ngModel)]="login.password"
+              aria-label="Password"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+        </div>
+        <div class="d-grid">
+          <button type="button" class="btn btn-warning" (click)="onLogin()">
+            Sign In
+          </button>
+        </div>
+        <div class="mt-5 text-center">
+          <p>
+            Create By AlbetawiCorp -
+            <a href="https://github.com/Rizqidoet" class="text-dark"
+              ><b> @rizqidoet </b></a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <nav class="navbar navbar-light bg-warning">
+  <div class="container-fluid ps-5 pt-3">
+    <span class="navbar-brand mb-0 h1">Navbar</span>
+  </div>
+</nav> -->
+<!-- 
+<div class="main-wrapper">
+  <div class="section col-xs-12">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 right bg-warning">
+          <img src="../../assets/image-hero.png" class="img-fluid" />
+        </div>
+
+        <div class="col-lg-6 bg-light py-2 align-self-lg-center">
+          <div class="row px-5">
+            <div>
+              <h4><b>Sign In</b></h4>
+            </div>
+            <div class="mt-4">
+              <label for="Username" class="form-label">Username</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Username"
+                  [(ngModel)]="login.username"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div>
+                <label for="Password" class="form-label">Password</label>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    [(ngModel)]="login.password"
+                    aria-label="Password"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+              </div>
+              <div class="d-grid">
+                <button
+                  type="button"
+                  class="btn btn-warning"
+                  (click)="onLogin()"
+                >
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- 
 <div class="row" style="height: 650px;">
     <div style="width: 50%;" class="d-flex flex-column align-items-center bg-warning">
         <div class="col d-flex justify-content-start px-3 pt-3" style="height: 10%; width: 100%;">
@@ -54,4 +198,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
