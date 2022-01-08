@@ -1,35 +1,216 @@
 <!-- Start: Navbar menu -->
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container">
-        <div class="col d-flex justify-content-start" style="height: 10%; width: 100%;">
-            <div class="my-auto">
-                <img src="../../assets/icon-login.png" style="height: 25px; width: 25px;"/>
-            </div>
-            <div class="ms-2 pt-2 my-auto">
-                <label for="Username" class="form-label" routerLink="/dashboard">
-                    <b>
-                        Rizqi Technical-test
-                    </b>
-                </label>
-            </div>
-        </div>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" routerLink="/portfolios-list">Portfolios</a></li>
-                <li class="nav-item"><a class="nav-link" active routerLink="/blog-list">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" active routerLink="/login">Logout</a></li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-warning shadow">
+  <div class="container py-3">
+    <a class="navbar-brand" routerLink="/dashboard">
+      <img
+        src="../../assets/icon-login.png"
+        alt=""
+        width="25"
+        height="25"
+        class="d-inline-block align-text-top me-2"
+      />
+      <b> Rizqi Technical Test </b>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/dashboard"
+            >Dashboard</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/blog-list">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/portfolios-list">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Logout</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 <!-- End: Navbar menu -->
 
-<!-- Start: body -->
-<div class="container">
-    <div class="text-start mt-5">
-        <h1>Selamat Datang Di Dashboard</h1>
-    </div>
+<!-- Start: Jumbotron -->
+<div class="jumbotron text-center">
+  <h1 class="display-4">Muhamad Rizqi Fadila</h1>
+  <p class="lead">Frontend Developer</p>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path
+      fill="#ffffff"
+      fill-opacity="1"
+      d="M0,96L34.3,106.7C68.6,117,137,139,206,144C274.3,149,343,139,411,122.7C480,107,549,85,617,101.3C685.7,117,754,171,823,186.7C891.4,203,960,181,1029,170.7C1097.1,160,1166,160,1234,165.3C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+    ></path>
+  </svg>
 </div>
+<!-- End: Jumbotron -->
+
+<!-- Start: About -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h2>About</h2>
+      </div>
+      <div class="row mt-5 justify-content-center fs-5 text-center">
+        <div class="col-lg-6" style="text-align: justify">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+            placeat, aperiam quos aliquid quod vitae at officia temporibus
+            accusamus possimus ipsam laudantium quo voluptates debitis ullam
+            mollitia dignissimos magni. Reprehenderit.
+          </p>
+        </div>
+        <div class="col-lg-6" style="text-align: justify">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur id
+          assumenda ipsa eos eaque similique in repellendus est exercitationem,
+          autem ducimus voluptatem quidem veritatis quod vel quis nobis
+          voluptates! Ullam vitae in dolor, nemo odio non exercitationem libero
+          soluta ipsam?
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path
+      fill="#fff27c"
+      fill-opacity="1"
+      d="M0,256L48,224C96,192,192,128,288,112C384,96,480,128,576,122.7C672,117,768,75,864,74.7C960,75,1056,117,1152,144C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+    ></path>
+  </svg>
+</section>
+<!-- End: About -->
+
+<!-- Start: Portofolio -->
+<section class="pt-5 portofolio">
+  <div class="container">
+    <div class="row text-center justify-content-evenly">
+      <div class="col">
+        <h2>My Projects</h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-4 mb-3">
+        <div class="card">
+          <img
+            src="../../assets/portofolio-1s.jpg"
+            class="card-img-top"
+            alt="porto-1"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Technical Test</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+              tempore. Deserunt laborum, quibusdam laudantium ipsa quos animi et
+              voluptatum sit vel maiores provident necessitatibus ex?
+            </p>
+            <a href="#" class="btn btn-primary px-5">Got it</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-3">
+        <div class="card">
+          <img
+            src="../../assets/portofolio-2s.jpg"
+            class="card-img-top"
+            alt="porto-1"
+          />
+          <div class="card-body">
+            <h5 class="card-title">PetpyCare App</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Doloremque natus sequi ad assumenda eligendi voluptate veritatis
+              nulla veniam ipsam eius culpa, ratione sit corrupti suscipit.
+            </p>
+            <a href="#" class="btn btn-primary px-5">Got it</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card">
+          <img
+            src="../../assets/portofolio-3s.jpg"
+            class="card-img-top"
+            alt="porto-1"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Shamo App</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto velit, maxime consequatur numquam, corrupti sint eum
+              cum praesentium tenetur incidunt similique distinctio.
+            </p>
+            <a href="#" class="btn btn-primary px-5">Got it</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path
+      fill="#ffffff"
+      fill-opacity="1"
+      d="M0,160L120,186.7C240,213,480,267,720,256C960,245,1200,171,1320,133.3L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+    ></path>
+  </svg>
+</section>
+<!-- End: Portofolio -->
+
+<!-- Start: Profile -->
+<!-- <section>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img
+          src="../../assets/profile.jpg"
+          alt="My Profile Picture"
+          style="width: 150px"
+        />
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End: Profile -->
+
+<!-- Start: Footer -->
+<section class="">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path
+      fill="#fff27c"
+      fill-opacity="1"
+      d="M0,288L80,272C160,256,320,224,480,197.3C640,171,800,149,960,138.7C1120,128,1280,128,1360,128L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+    ></path>
+  </svg>
+  <footer class="text-center py-4 text-dark">
+    <p>
+      Create By AlbetawiCorp -
+      <a href="https://github.com/Rizqidoet" class="text-dark"
+        ><b> @rizqidoet </b></a
+      >
+    </p>
+  </footer>
+</section>
+<!-- End: Footer -->
+
+<!-- Start: body -->
+<!-- <div class="container bg-danger">
+  <div class="text-start mt-5">
+    <h1>Selamat Datang Di Dashboard</h1>
+  </div>
+</div> -->
 <!-- End: body -->

@@ -1,66 +1,123 @@
 <!-- Start: Navbar menu -->
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container">
-        <div class="col d-flex justify-content-start" style="height: 10%; width: 100%;">
-            <div class="my-auto">
-                <img src="../../assets/icon-login.png" style="height: 25px; width: 25px;"/>
-            </div>
-            <div class="ms-2 pt-2 my-auto">
-                <label for="Username" class="form-label" routerLink="/dashboard">
-                    <b>
-                        Rizqi Technical-test
-                    </b>
-                </label>
-            </div>
-        </div>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" routerLink="/portfolios-list">Portfolios</a></li>
-                <li class="nav-item"><a class="nav-link" active routerLink="/blog-list">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" active routerLink="/login">Logout</a></li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-warning shadow">
+  <div class="container py-3">
+    <a class="navbar-brand" routerLink="/dashboard">
+      <img
+        src="../../assets/icon-login.png"
+        alt=""
+        width="25"
+        height="25"
+        class="d-inline-block align-text-top me-2"
+      />
+      <b> Rizqi Technical Test </b>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/dashboard"
+            >Dashboard</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/blog-list">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/portfolios-list">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Logout</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 <!-- End: Navbar menu -->
 
 <!-- Start: Body -->
 <div class="container flex-row mt-5 w-50 py-3">
-    <div>
-        <h3>
-            <b>
-                {{ titlePage }}
-            </b>
-        </h3>
+  <div>
+    <h3>
+      <b>
+        {{ titlePage }}
+      </b>
+    </h3>
+  </div>
+  <div class="mt-4 form-floating">
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Title"
+      required
+      [(ngModel)]="addBlog.title"
+    />
+    <label for="title" class="text-muted">Title</label>
+  </div>
+  <div class="form-floating mt-3">
+    <textarea
+      class="form-control"
+      placeholder="Content Value"
+      id="content"
+      style="height: 100px"
+      [(ngModel)]="addBlog.content"
+    ></textarea>
+    <label for="content" class="text-muted">Content Value</label>
+  </div>
+  <div class="row mt-3">
+    <div class="w-50 form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="author"
+        placeholder="Author"
+        required
+        [(ngModel)]="addBlog.author"
+      />
+      <label for="author" class="text-muted ms-3">Author</label>
     </div>
-    <div class="mt-4 form-floating">
-        <input type="text" class="form-control" id="title" placeholder="Title" required [(ngModel)]="addBlog.title">
-        <label for="title"class="text-muted">Title</label>
+    <div class="w-50 form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="url"
+        placeholder="Url"
+        required
+        [(ngModel)]="addBlog.url"
+      />
+      <label for="url" class="text-muted ms-3">Url</label>
     </div>
-    <div class="form-floating mt-3">
-        <textarea class="form-control" placeholder="Content Value" id="content" style="height: 100px" [(ngModel)]="addBlog.content"></textarea>
-        <label for="content"class="text-muted">Content Value</label>
+  </div>
+  <div class="mt-4 row">
+    <div class="col col-md-4">
+      <button
+        type="button"
+        class="btn btn-secondary w-100 py-2"
+        routerLink="/blog-list"
+        id="buttonCTA"
+      >
+        Kembali
+      </button>
     </div>
-    <div class="row mt-3">
-        <div class="w-50 form-floating">
-            <input type="text" class="form-control" id="author" placeholder="Author" required [(ngModel)]="addBlog.author">
-            <label for="author" class="text-muted ms-3">Author</label>
-        </div>
-        <div class="w-50 form-floating">
-            <input type="text" class="form-control" id="url" placeholder="Url" required [(ngModel)]="addBlog.url">
-            <label for="url" class="text-muted ms-3">Url</label>
-        </div>
+    <div class="col col-md-8">
+      <button
+        type="button"
+        class="btn btn-warning w-100 py-2"
+        (click)="onSaveAddBlog()"
+      >
+        {{ buttonCTA }}
+      </button>
     </div>
-    <div class="mt-4 row">
-        <div class="col col-md-4">
-            <button type="button" class="btn btn-secondary w-100 py-2" routerLink="/blog-list" id="buttonCTA">Kembali</button>
-        </div>
-        <div class="col col-md-8">
-            <button type="button" class="btn btn-warning w-100 py-2" (click)="onSaveAddBlog()">{{ buttonCTA }}</button>
-        </div>
-        
-    </div>
+  </div>
 </div>
 <!-- End: Body -->
